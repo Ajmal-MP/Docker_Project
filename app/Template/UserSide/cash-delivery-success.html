@@ -1,0 +1,88 @@
+{% extends 'Accounts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="py-5">
+    <div class="container">
+         
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <div class="card shadow">
+                    <div class="card-body text-center">
+                        <img width="100px" src="{% static 'images/order_confirm.webp' %}" alt="">
+                        <h1>Order confirmed</h1>
+                        <h4>Your item will be delivered soon</h4>
+                        <h3 class="text-danger">Thank you for your purchase!!</h3>
+                        <h4 id="invoice">Your tracking number is : 
+                            
+                                {{orders.order_number}}
+
+                        </h4>
+                        <div class="row py-3 d-flex justify-content-center">
+                            <div class="col-4">
+                                <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card text-left">
+                               <div class="card-body">
+                                        <h3>Shipping Address</h3>
+                                        {{orders.full_name}} <br>
+                                        {{orders.city}}
+                                        {{orders.state}} <br>
+                                        {{orders.country}} 
+                               </div>
+                               <h3>Total: {{payment.amount_paid}}</h3> 
+                                        
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+    {% include 'UserSide/footer.html' %}
+
+     <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+    <!-- Global Vendor, plugins JS -->
+    <script src="{% static 'assets/js/vendor/modernizr-3.11.2.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-migrate-3.3.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-ui.min.js' %}"></script>
+
+    <!--Plugins JS-->
+    <script src="{% static 'assets/js/plugins/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/material-scrolltop.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.zoom.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/venobox.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.waypoints.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.lineProgressbar.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/aos.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.instagramFeed.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/ajax-mail.js' %}"></script>
+
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <!-- <script src="assets/js/vendor/vendor.min.js"></script>
+    <script src="assets/js/plugins/plugins.min.js"></script> -->
+
+    <!-- Main JS -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+
+    
+
+
+</body>
+
+</html>
+
+{% endblock %}
